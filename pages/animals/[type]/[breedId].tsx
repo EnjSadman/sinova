@@ -2,7 +2,7 @@ import { GetServerSideProps } from 'next';
 import fetchAnimal from '@/app/utils/functions/fetch';
 import { AnimalType, Order } from '@/app/utils/enums/enums';
 import { ApiResponse } from '@/app/utils/types/types';
-import "../../../app/globals.css";
+
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { params } = context;
