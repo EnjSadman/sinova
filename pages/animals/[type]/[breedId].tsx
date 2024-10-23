@@ -4,7 +4,7 @@ import { AnimalType, Order } from '@/app/utils/enums/enums';
 import { ApiResponse } from '@/app/utils/types/types';
 
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+const getServerSideProps: GetServerSideProps = async (context) => {
   const { params } = context;
 
   if (!params || !params.type || !params.breedId) {
