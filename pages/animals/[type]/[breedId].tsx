@@ -5,7 +5,13 @@ import { ApiResponse } from '@/app/utils/types/types';
 import "../../../app/globals.css";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { breedId, type } = context.params;
+  const { params } = context;
+
+  if (!params || !params.type || !params.breedId) {
+    return { notFound: true };
+  }
+  const { type, breedId } = params;
+  
 
   let animalType;
   if (type === 'cat') {
