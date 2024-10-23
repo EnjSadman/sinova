@@ -36,7 +36,7 @@ export default function BreedPage({ animals, type }: { animals: ApiResponse[], b
       <div className="grid grid-cols-2 gap-4 mt-4">
         {animals.map((animal) => (
           <div key={animal.id}>
-            <img src={animal.url} alt={`${type}`} className="w-48 h-48 object-cover" />
+            <img src={animal.url} alt={`${type}`} className="w-10 h-10 object-cover" />
           </div>
         ))}
       </div>
