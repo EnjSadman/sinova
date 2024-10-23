@@ -4,7 +4,7 @@ import { AnimalType } from "@/app/utils/enums/enums";
 
 function AnimalList({animalArray, type} : {animalArray  : ApiResponse[], type: AnimalType}) {
   return (
-    <div className="container mx-auto">
+    <div className="container flex justify-between mx-auto gap-4">
       {
         animalArray.map((animal, index) => <AnimalCard type={type} animal={animal} key={index}/>)
       }

@@ -1,7 +1,8 @@
 import { GetServerSideProps } from 'next';
 import fetchAnimal from '@/app/utils/functions/fetch';
-import { AnimalType } from '@/app/utils/enums/enums';
+import { AnimalType, Order } from '@/app/utils/enums/enums';
 import { ApiResponse } from '@/app/utils/types/types';
+import "../../../app/globals.css";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { breedId, type } = context.params;
@@ -15,7 +16,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     return { notFound: true };
   }
 
-  const animals = await fetchAnimal(animalType, 10, 1, undefined, [breedId as string]);
+  const animals = await fetchAnimal(animalType, 10, 1, Order.asc, [breedId as string]);
 
   return {
     props: {
@@ -35,8 +36,8 @@ export default function BreedPage({ animals, type }: { animals: ApiResponse[], b
       <h2 className="text-xl mt-4">Cats of this breed</h2>
       <div className="grid grid-cols-2 gap-4 mt-4">
         {animals.map((animal) => (
-          <div key={animal.id}>
-            <img src={animal.url} alt={`${type}`} className="w-10 h-10 object-cover" />
+          <div key={animal.id} className="relative h-60 overflow-hidden">
+            <img src={animal.url} alt={`${type}`} className="object-cover" />
           </div>
         ))}
       </div>

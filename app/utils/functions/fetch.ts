@@ -8,7 +8,7 @@ async function fetchAnimal(
   type: AnimalType,
   limit: number = 1,
   has_breeds: number = 1,
-  order: Order = Order.asc,
+  order: Order = Order.rand,
   breedIds: string[] = [],
   categoryIds: string[] = [],
 ) : Promise<ApiResponse[]>
@@ -17,8 +17,8 @@ async function fetchAnimal(
       limit,
       order,
       has_breeds,
-      breedIds: breedIds.join(),
-      categoryIds: categoryIds.join(),
+      breed_ids: breedIds.join(),
+      category_ids: categoryIds.join(),
     }
     let url;
 
